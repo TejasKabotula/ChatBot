@@ -14,13 +14,12 @@ os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-# LangChain and Community imports matching EXP-3.ipynb
-from langchain_google_genai import ChatGoogleGenerativeAI
+# LangChain and Community imports
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
 # Load environment variables (.env contains GOOGLE_API_KEY)
@@ -28,7 +27,7 @@ load_dotenv()
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 INDEX_PATH = os.path.join(os.path.dirname(__file__), "faiss_index")
-EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING_MODEL_NAME = "models/gemini-embedding-001"
 
 # Gemini model configuration (default model configurable in .env)
 PRIMARY_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
@@ -93,12 +92,14 @@ def split_documents(documents):
 
 def get_embeddings():
     """
-    Step 3: Create Hugging Face Embeddings model.
-    Uses sentence-transformers/all-MiniLM-L6-v2 as in EXP-3.
+    Step 3: Create Google Generative AI Embeddings model.
+    Ultra-lightweight (<40MB RAM), fast, and production-ready for 512MB environments.
     """
     print(f"\n[Step 3] Initializing embedding model ({EMBEDDING_MODEL_NAME})...")
-    embeddings = HuggingFaceEmbeddings(
-        model_name=EMBEDDING_MODEL_NAME
+    api_key = os.getenv("GOOGLE_API_KEY")
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model=EMBEDDING_MODEL_NAME,
+        google_api_key=api_key
     )
     return embeddings
 
