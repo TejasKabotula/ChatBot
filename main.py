@@ -152,22 +152,36 @@ def get_llm(model_name=PRIMARY_MODEL):
     )
 
 
+GREETINGS = {
+    "hi", "hello", "hey", "hola", "namaste", "good morning", "good afternoon",
+    "good evening", "howdy", "sup", "what's up", "whats up", "greetings"
+}
+COURTESIES = {
+    "thanks", "thank you", "thank you so much", "thx", "bye", "goodbye", "see you", "cya"
+}
+
+
 def create_rag_chain(vectorstore):
     """
     Steps 6, 7 & 8: Build Retriever, Prompt, and RAG Chain.
-    Retrieves top k=10 matching chunks as in EXP-3.ipynb.
+    Retrieves top k=4 most relevant chunks to keep citations accurate and avoid noise.
     """
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
 
     prompt = ChatPromptTemplate.from_template(
-        """Answer the student's question using only the given context about Sri Vasavi Engineering College (SVEC).
-If the context does not contain enough information to answer the question, clearly say that the information is unavailable in the college documents.
+        """You are the official student assistance AI for Sri Vasavi Engineering College (Autonomous), Pedatadepalli, Tadepalligudem.
 
-Context:
+Core Guidelines:
+1. Speak naturally, warmly, and authoritatively as the college assistant.
+2. NEVER use robotic meta-phrases such as "based on the provided documents", "according to the context", "as stated in the documents", or "based on the provided text". Answer directly and professionally (for example: "At Sri Vasavi Engineering College, students must maintain a minimum of 75% attendance...").
+3. Use the following verified college context to formulate your response:
 {context}
 
-Question:
-{question}
+4. If the context does not contain enough information to answer the question, politely say:
+"I do not have verified records on that in the college documents. Please contact the SVEC administrative office or visit https://srivasaviengg.ac.in."
+5. Format your answers clearly using bullet points and bold titles when describing courses, rules, or statistics.
+
+Question: {question}
 
 Answer:"""
     )
@@ -180,12 +194,36 @@ Answer:"""
 def answer_question(query, retriever, chain, prompt, llm):
     """
     Executes RAG pipeline for a given user question and returns response + sources.
+    Handles greetings and courtesies cleanly without citing unnecessary source documents.
     """
+    normalized = query.lower().strip().strip("!?.,")
+
+    # Fast-path for greetings
+    if normalized in GREETINGS or any(normalized.startswith(g + " ") for g in GREETINGS):
+        greeting_reply = (
+            "Hello! I am the official AI Assistant for **Sri Vasavi Engineering College (Autonomous)**.\n\n"
+            "How can I assist you today? You can ask me about:\n"
+            "• **Courses & Intake**: B.Tech and M.Tech specializations\n"
+            "• **Attendance Rules**: Minimum criteria & condonation policies\n"
+            "• **Exams & Regulations**: Semester exams, credit systems & grading\n"
+            "• **Placements**: Top recruiters, highest packages & statistics\n"
+            "• **Research & Faculty**: Patents, published papers & facilities"
+        )
+        return greeting_reply, [], []
+
+    # Fast-path for courtesies and pleasantries
+    if normalized in COURTESIES or any(normalized.startswith(c + " ") for c in COURTESIES):
+        courtesy_reply = (
+            "You're very welcome! If you have any further questions about Sri Vasavi Engineering College, "
+            "feel free to ask. Have a great day!"
+        )
+        return courtesy_reply, [], []
+
     # Retrieve relevant document chunks
     retrieved_docs = retriever.invoke(query)
 
     if not retrieved_docs:
-        return "No relevant information found in the college documents.", []
+        return "I do not have verified records on that in the college documents. Please contact the SVEC administrative office or visit https://srivasaviengg.ac.in.", []
 
     # Combine context
     context = "\n\n".join(doc.page_content for doc in retrieved_docs)
@@ -214,6 +252,10 @@ def answer_question(query, retriever, chain, prompt, llm):
             })
         else:
             raise e
+
+    # If the response couldn't answer the question from records, omit sources
+    if "do not have verified records" in response.lower() or "not available in the college" in response.lower():
+        sources = []
 
     return response, sources, retrieved_docs
 
