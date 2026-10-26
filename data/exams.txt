@@ -1,0 +1,42 @@
+# Sri Vasavi Engineering College (SVEC) — Examination Regulations & Evaluation System
+
+## 1. Evaluation Scheme (Continuous Internal Evaluation & Semester End Examinations)
+Sri Vasavi Engineering College is an Autonomous institution affiliated permanently with JNTU Kakinada. The academic evaluation comprises two components:
+- Continuous Internal Evaluation (CIE) / Internal Assessment: 30% to 40% weightage depending on the regulation scheme (e.g., VR20, VR23 regulations).
+- Semester End Examinations (SEE) / External Examination: 60% to 70% weightage, conducted by the Autonomous Examination Cell of SVEC.
+
+## 2. Mid-Term Examinations and Internal Assessment
+- Each semester features two Mid-Term Examinations (Mid-I and Mid-II).
+- The syllabus for Mid-I covers the first 2.5 units, and Mid-II covers the remaining 2.5 units.
+- Internal marks are computed based on a weighted average of Mid-I and Mid-II performance, along with surprise tests, classroom quizzes, assignments, and active participation.
+- Practical / Laboratory internal assessment is based on day-to-day work, lab record maintenance, observation note completion, and an internal lab test conducted before the semester end.
+
+## 3. Passing Standards & Minimum Qualifying Marks
+- A student is declared to have passed a theory course if they secure:
+  1. A minimum of 35% of marks in the Semester End Examination (SEE), and
+  2. A minimum of 40% aggregate marks in CIE and SEE combined.
+- For Laboratory / Practical courses, a student must secure at least 40% in SEE and 50% in CIE + SEE combined.
+- Failure to achieve these minimums results in an 'F' (Fail) grade, requiring the student to appear for supplementary examinations.
+
+## 4. Grading System & Cumulative Grade Point Average (CGPA)
+SVEC follows a 10-point Letter Grading Scale:
+- O (Outstanding): Grade Points 10 (90% and above)
+- A+ (Excellent): Grade Points 9 (80% to 89.9%)
+- A (Very Good): Grade Points 8 (70% to 79.9%)
+- B+ (Good): Grade Points 7 (60% to 69.9%)
+- B (Above Average): Grade Points 6 (50% to 59.9%)
+- C (Average): Grade Points 5 (40% to 49.9%)
+- F (Fail): Grade Points 0 (Below 40%)
+- Ab (Absent): Grade Points 0
+- SGPA (Semester Grade Point Average) = Sum(Credits * Grade Points) / Sum(Credits for that semester).
+- CGPA (Cumulative Grade Point Average) = Sum(All Earned Credits * Grade Points) / Sum(Total Credits across all semesters).
+
+## 5. Revaluation, Recounting & Challenge Valuation
+- After the announcement of semester results, students who wish to apply for recounting of marks or revaluation of their answer scripts can apply online through the student examination portal within 10 days of result notification.
+- Prescribed fee for Revaluation is typically Rs 1,000 per theory paper (verify with examination cell circular).
+- If there is an improvement of grade upon revaluation, the revised grade is recorded on the official marks memo.
+- Challenge Valuation: Available for students dissatisfied with revaluation results upon payment of challenge fee.
+
+## 6. Supplementary Examinations & Malpractice Code
+- Supplementary examinations are conducted simultaneously alongside the regular semester end examinations in every semester cycle.
+- The Examination Cell enforces strict anti-malpractice regulations. Any possession of unauthorized notes, mobile phones, smartwatches, or copying leads to immediate expulsion from the exam, cancellation of all semester papers, and referral to the Malpractice Committee for disciplinary action.

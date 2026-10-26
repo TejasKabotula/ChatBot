@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Vasavi Engineering College | Student FAQ Chatbot</title>
+  <meta name="description" content="Official AI-powered Student FAQ Chatbot for Sri Vasavi Engineering College (Autonomous), Tadepalligudem.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/logo.png">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Ambient background glow elements (Deep blues & cool slates - NO violet) -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+
+  <div class="app-shell">
+    <!-- Top College Brand Header -->
+    <header class="college-header">
+      <div class="header-branding">
+        <div class="emblem-container" aria-label="SVEC Official Logo">
+          <img src="/static/logo.png" alt="Sri Vasavi Engineering College Logo" class="college-logo-img" />
+        </div>
+        <div class="brand-text">
+          <div class="college-title">Sri Vasavi Engineering College <span class="autonomous-pill">Autonomous</span></div>
+          <div class="college-subtitle">Pedatadepalli, Tadepalligudem &bull; Approved by AICTE &bull; NAAC 'A' Grade &bull; NBA Accredited</div>
+        </div>
+      </div>
+
+      <div class="header-status">
+        <div class="status-pill" id="system-status">
+          <span class="status-dot"></span>
+          <span class="status-text">SVEC FAQ Bot &bull; Active</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Chat Workspace Card (Clean Rounded Contours - No Sharp Boxes) -->
+    <main class="chat-workspace">
+      <!-- Chat Message Stream Area -->
+      <section class="messages-container" id="messages-stream">
+        <!-- Welcome Hero Banner -->
+        <div class="welcome-card" id="welcome-banner">
+          <div class="bot-badge-icon">
+            <img src="/static/logo.png" alt="SVEC Logo" class="welcome-logo-img" />
+          </div>
+          <h1 class="welcome-title">SVEC Campus & Academic FAQ Assistant</h1>
+          <p class="welcome-desc">
+            Ask any question about courses, seat intake, attendance condonation, semester exams, or campus placements. Responses are verified and grounded directly in official college documents.
+          </p>
+
+          <!-- Quick Starter Question Pills -->
+          <div class="quick-prompts-label">Popular student inquiries:</div>
+          <div class="quick-prompts-wrap">
+            <button class="prompt-chip" data-query="What are the attendance requirements and condonation rules?">
+              <span class="chip-icon">📋</span> Attendance Requirements
+            </button>
+            <button class="prompt-chip" data-query="What B.Tech and postgraduate courses does SVEC offer?">
+              <span class="chip-icon">🎓</span> Courses & Seat Intake
+            </button>
+            <button class="prompt-chip" data-query="Which companies recruit students and what are CRT rules?">
+              <span class="chip-icon">💼</span> Placements & CRT
+            </button>
+            <button class="prompt-chip" data-query="How are semester internal and external exams evaluated?">
+              <span class="chip-icon">📝</span> Exam & Evaluation
+            </button>
+            <button class="prompt-chip" data-query="What facilities, library, and hostel options are on campus?">
+              <span class="chip-icon">🏫</span> Campus Facilities
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Input Dock (Floating Pill Design) -->
+      <footer class="input-dock-container">
+        <form class="input-dock-pill" id="chat-form">
+          <div class="input-prefix-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="user-input"
+            class="chat-input"
+            placeholder="Ask a question about SVEC (e.g. attendance, courses, exams, placements)..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="send-btn" class="send-pill-btn" aria-label="Send query">
+            <span class="btn-text">Ask</span>
+            <svg class="send-arrow-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </form>
+        <div class="input-footer-note">
+          Sri Vasavi Engineering College (Autonomous) &bull; Verified Retrieval-Augmented Generation
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
