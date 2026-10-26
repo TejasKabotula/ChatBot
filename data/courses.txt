@@ -1,0 +1,51 @@
+# Sri Vasavi Engineering College (SVEC) — Programmes, Courses, Admissions & Facilities
+
+## 1. Institution Identity & Key Facts
+- Full Name: Sri Vasavi Engineering College (Autonomous)
+- Established Year: 2001 by Sri Vasavi Educational Society.
+- Location: Pedatadepalli, Tadepalligudem, West Godavari District, Andhra Pradesh - 534101.
+- Autonomy: Granted Autonomous status by UGC in 2018; permanently affiliated to Jawaharlal Nehru Technological University Kakinada (JNTU Kakinada).
+- Approvals & Accreditations: Approved by AICTE New Delhi; Accredited by NAAC with 'A' Grade; Recognized under Sections 2(f) & 12(B) of the UGC Act 1956; NBA Accredited for undergraduate branches (including ECE, EEE, ME, CSE).
+- AP EAPCET / EAMCET College Code: VSVT
+- Note: This is Sri Vasavi Engineering College in Tadepalligudem (West Godavari, AP), distinct from Vasavi College of Engineering in Hyderabad, Telangana.
+
+## 2. Undergraduate Programmes (B.Tech - 4 Years, 8 Semesters) & Intake
+The college offers the following B.Tech degrees with sanctioned annual intakes:
+- B.Tech Computer Science and Engineering (CSE): 300 seats
+- B.Tech Artificial Intelligence and Machine Learning (AI & ML): 180 seats
+- B.Tech Computer Science and Engineering (Artificial Intelligence - CSE AI): 180 seats
+- B.Tech Electronics and Communication Engineering (ECE): 240 seats
+- B.Tech Electrical and Electronics Engineering (EEE): 60 seats
+- B.Tech Mechanical Engineering (ME): 60 seats
+- B.Tech Civil Engineering (CE): 60 seats
+- B.Tech Computer Science and Engineering (Data Science - CSE DS): 60 seats
+- B.Tech Information Technology (IT): 60 seats
+- B.Tech Electronics and Communication Technology (ECT): 60 seats
+
+## 3. Postgraduate Programmes (M.Tech & MBA)
+- Master of Technology (M.Tech) in:
+  - Computer Science & Engineering (AI & ML)
+  - Structural Engineering (Civil Department)
+  - Power Electronics & Drives (EEE Department)
+  - VLSI and Embedded Systems (ECE Department)
+- Master of Business Administration (MBA): 2-Year PG management programme.
+- Eligibility: GATE or AP PGCET / AP ICET score and bachelor's degree in corresponding discipline.
+
+## 4. Admission Process & Annual Fee Structure
+- Category-A (Convenor Quota - 70% of seats): Admissions are through the state-level AP EAPCET (Engineering, Agriculture and Pharmacy Common Entrance Test) counselling based on state rank.
+- Category-B (Management / NRI Quota - 30% of seats): Filled based on merit in 10+2 (Intermediate / CBSE) with MPC subjects or JEE Mains / EAPCET as per Andhra Pradesh State Council of Higher Education (APSCHE) guidelines.
+- Lateral Entry: Diploma holders can join directly into 2nd year B.Tech through AP ECET rank.
+- Annual Tuition Fee: The officially displayed tuition fee is Rs 77,200 per annum for B.Tech programmes (subject to revision by the AP Higher Education Regulatory and Monitoring Commission - APHERMC).
+- Hostel and transport fees are separate from the tuition fee.
+
+## 5. Campus Facilities & Student Infrastructure
+- Central Library: Fully automated with open access, over 55,000 volumes, international and national journals, digital e-library with DELNET and IEEE access.
+- AICTE IDEA Lab: Advanced prototyping center with 3D printers, laser cutters, PCB milling, embedded boards, and IoT kits.
+- Research Centres: Recognized research centres by JNTU Kakinada in EEE, CSE, and other departments.
+- Hostels: Separate secure on-campus hostels for boys and girls with study halls, Wi-Fi, dining, and round-the-clock security.
+- Transport: Extensive fleet of over 40 college buses connecting Tadepalligudem, Tanuku, Bhimavaram, Eluru, Palakollu, Narsapur, and surrounding towns.
+- Sports & Gym: Large outdoor grounds for cricket, football, athletics; indoor stadium for badminton, table tennis, chess, and gymnasium.
+- Contact Details:
+  - Phone: 08818-284355, 08818-284322, 08818-284544
+  - Email: principal@srivasaviengg.ac.in
+  - Website: https://srivasaviengg.ac.in
