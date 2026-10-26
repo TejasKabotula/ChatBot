@@ -11,8 +11,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# FAISS Local Cache / Vector Index
-faiss_index/
 
 # OS and Editor files
 .vscode/
