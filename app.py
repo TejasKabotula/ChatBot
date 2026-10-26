@@ -28,22 +28,41 @@ rag_state = {
 }
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Initialize RAG vector store and pipeline at startup
-    print("Initializing SVEC FAQ Chatbot RAG Pipeline for FastAPI...")
+def init_rag_system():
+    if rag_state["ready"]:
+        return True
+
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        print("WARNING: GOOGLE_API_KEY is not set in environment variables.")
+        return False
+
     try:
-        vs = build_or_load_vectorstore(force_rebuild=False)
-        retriever, chain, prompt, llm = create_rag_chain(vs)
-        rag_state["vectorstore"] = vs
+        if not rag_state["vectorstore"]:
+            rag_state["vectorstore"] = build_or_load_vectorstore(force_rebuild=False)
+        retriever, chain, prompt, llm = create_rag_chain(rag_state["vectorstore"])
         rag_state["retriever"] = retriever
         rag_state["chain"] = chain
         rag_state["prompt"] = prompt
         rag_state["llm"] = llm
         rag_state["ready"] = True
         print("SVEC FAQ Chatbot RAG Pipeline ready!")
+        return True
     except Exception as e:
         print(f"Error initializing RAG pipeline: {e}")
+        return False
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize RAG vector store and pipeline at startup
+    print("Initializing SVEC FAQ Chatbot RAG Pipeline for FastAPI...")
+    try:
+        # Pre-load vector store cache
+        rag_state["vectorstore"] = build_or_load_vectorstore(force_rebuild=False)
+        init_rag_system()
+    except Exception as e:
+        print(f"Startup notice: {e}")
     yield
 
 
@@ -77,9 +96,10 @@ class ChatResponse(BaseModel):
 @app.get("/api/health")
 def health_check():
     return {
-        "status": "healthy" if rag_state["ready"] else "loading",
+        "status": "healthy" if rag_state["ready"] else "pending_key" if not os.getenv("GOOGLE_API_KEY") else "loading",
         "college": "Sri Vasavi Engineering College (Autonomous)",
-        "model": os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+        "model": os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite"),
+        "has_api_key": bool(os.getenv("GOOGLE_API_KEY"))
     }
 
 
@@ -90,6 +110,14 @@ def chat_endpoint(req: ChatRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
     if not rag_state["ready"]:
+        init_rag_system()
+
+    if not rag_state["ready"]:
+        if not os.getenv("GOOGLE_API_KEY"):
+            raise HTTPException(
+                status_code=500,
+                detail="GOOGLE_API_KEY is not configured in Render. Please add your Gemini API key in the Render Dashboard (Environment tab)."
+            )
         raise HTTPException(status_code=503, detail="RAG system is still loading documents. Please try again shortly.")
 
     try:
@@ -110,7 +138,7 @@ def chat_endpoint(req: ChatRequest):
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def serve_root():
     index_path = os.path.join(STATIC_DIR, "index.html")
     if os.path.exists(index_path):
